@@ -1,6 +1,19 @@
-# two_tower_models
+# Two Tower Models for Retrieval
 
-This is companion repository to [two tower models](https://recsysml.substack.com/p/two-tower-models-for-retrieval-of), a commonly used approach to retrieval / candidate generation in recommender systems. The goal of this repository is to show how to increase the alignment of retrieval with ranking.
+A step-by-step PyTorch implementation of Two-Tower models for candidate retrieval in recommender systems — starting from a clean base model and progressively adding production-level features like user history encoding, position debiasing, light ranking, and RLHF-style alignment with a ranking model.
+
+---
+
+## Why this project?
+
+Most recommendation systems operate in two stages:
+
+1. **Retrieval** — quickly narrow down millions of items to a few hundred candidates
+2. **Ranking** — score those candidates with a heavier model
+
+This repo focuses entirely on Stage 1 — retrieval using Two-Tower models — and shows how to improve it step by step, all the way up to aligning retrieval with the ranking model using knowledge distillation and RLHF-style reward signals.
+
+---
 
 ## [two_tower_base_retrieval.py](./src/two_tower_base_retrieval.py)
 
@@ -48,10 +61,4 @@ and learn how to make the retrieval more aligned with the ranking model.
 This is a helper file with a matrix multiplication approach to maximum inner product search.
 This helps us in having a PyTorch implementation to write tests on.
 
-# References
-
-1. [Seminal paper on two tower models in Youtube](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45530.pdf)
-
-------
-
-_Disclaimer:_ These are the personal creations/opinions of the author(s). Any artifacts, opinions stated here are theirs and not representative of their current or prior employer(s). Apart from publicly available information, any other information here is not claimed to refer to any company including ones the author(s) may have worked in or been associated with.
+ 
